@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/scss/normalize.scss';
 import './assets/scss/style.scss';
-import { ToDoList } from './pages/ToDoList';
+import { ToDoListPage } from './pages/ToDoListPage';
 
 
 
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
  root.render(   // в root добавляем всю верстку 
   <React.StrictMode>
-       <ToDoList />       {/* компонент */}
+       <ToDoListPage />       {/* компонент основной, вся весртка хранится здесь */}
   </React.StrictMode>
 );
 
