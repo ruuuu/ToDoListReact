@@ -1,23 +1,30 @@
 // компонент Form
+import { useState } from 'react';
 import './Form.scss';
-import { ChangeEvent } from 'react';
 
 
 
 
-export const Form = () => {
 
-      let createText = '';          // здесь будеи хранить введнный  вполе текст задачи
+export const Form = (props: { createNewToDo: Function }) => {
+      // хук useState имеет text - переменная состояния, и setText - метод изменеия переменной сотсояния:
+      const [text, setText] = useState<string>('');           // хук  useState - хранилище состояния (переменной text) и управления им. Передали пуcтую строку - нач значение переменной text; text - переменная хранящая значение, котрое передали в setText().   setText()- метод изменеия переменной text 
 
-      const formSubmit = () => {            // по нажатию на кнопку плюса, вызовется эта фукнция
 
+      const formSubmit = () => {                      // по нажатию на кнопку Плюс, вызовется эта фукнция
+            //console.log('createText ', createText);
+            if(text){
+                  props.createNewToDo(text);
+                  setText('');                        // очищем значение text
+            }
+           
       }
 
-      const changeText = (event: ChangeEvent<HTMLInputElement>) => {          // ChangeEvent<HTMLInputElement> - тип евента
-            //console.log(event.target.value)
-            createText = event.target.value;
 
-      }
+      // const changeText = (event: ChangeEvent<HTMLInputElement>) => {          // при вводе текста в поле, вызывается эта фукнция. ChangeEvent<HTMLInputElement> - тип евента
+      //       //console.log(event.target.value)
+      //       createText = event.target.value;
+      // }
 
 
 
@@ -25,7 +32,7 @@ export const Form = () => {
             <div className="form-wrapper">
                         <form action="#" onSubmit={formSubmit}>         {/*  события начинаются на on. По нажатию на кнопку плюса, выовется formSubmit() */}
                               <label>
-                                    <input type="text" onInput={changeText}/>     {/* событие onInput повесили на поле. При вводе символа в поле, вызовется changeText() */}
+                                    <input type="text" onChange={(event) => setText(event.target.value)}  value={text} />     {/* событие onChange повесили на поле ввода. При вводе символа в поле, вызовется коллбэк */}
                                     <button></button>
                               </label>
                         </form>

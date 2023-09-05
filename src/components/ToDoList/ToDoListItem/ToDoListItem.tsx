@@ -2,8 +2,8 @@ import './ToDoListItem.scss';
 import { toDo } from '../../../models/todo-item';                 // импорт интерфейса
 
 
-                              // {id: number, text: string, isDone: boolean}
-export const ToDoListItem = (props: { toDoItem:  toDo}) => {            // props(атрибут тега) типа toDo
+                             
+export const ToDoListItem = (props: { toDoItem: toDo,  updateToDo: Function,  deleteToDo: Function}) => {            // передаем 3 props-а(атрибуты тега) типа toDo
 
       //console.log('props ', props)
       return (
