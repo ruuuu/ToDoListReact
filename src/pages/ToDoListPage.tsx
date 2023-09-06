@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 export const ToDoListPage = () => {
 
-      const [todos, setTodos] = useState<toDo[]>([      // хук для изменеяи массива todos(у массива элементы типа toDo) методом setTodos(), нач значение todos это то, что передали в   useState()     
+      const [todos, setTodos] = useState<toDo[]>([      // хук для изменения массива todos(у массива элементы типа toDo) методом setTodos(), нач значение todos это то, что передали в   useState()     
             {
                   id: 0,
                   text: 'Перая задача',
@@ -44,37 +44,39 @@ export const ToDoListPage = () => {
 
 
       // обновление  задачи:
-      const updateToDo = (toDoItem: toDo) => { 
+      const updateToDo = (toDoItem: toDo) => {                    // toDoItem типа toDo, элемент на галочку которого нажали
+            console.log('update toDoItem', toDoItem)
             
-            const newToDo: toDo = {                  
-                  id: todos.length,
-                  text: text,
-                  isDone: false
-            }
-
-            setTodos([...todos, newToDo]);  // передали все эелменты массива todos и новый элемент newToDo
+            const newToDos = todos.map((item) => {                // map  вернет новый массив, элементами котрогот будут те, котрые подходят под услвие
+                  if(item.id === toDoItem.id){
+                        item.isDone = !item.isDone;
+                  }
+                  return item;
+            });
+                 
+            
+            console.log('toDoItem ', toDoItem)
+            setTodos(newToDos);                                   // обновили массив todos    
       }
 
 
-       // удаление  задачи:
-       const deleteToDo = (toDoItem: toDo) => { 
-            
-            const newToDo: toDo = {                   
-                  id: todos.length,
-                  text: text,
-                  isDone: false
-            }
 
-            setTodos([...todos, newToDo]);  // передали все эелменты массива todos и новый элемент newToDo
+      // удаление  задачи:
+      const deleteToDo = (toDoItem: toDo) => { 
+            console.log('delete',  toDoItem)
+            const newToDos = todos.filter((item) => item.id !== toDoItem.id);  // вернет массив, элементами котрого будут элементы подходящие под условеи
+            setTodos(newToDos);  
+
       }
+
+
 
 
       // в круглых скобках  () пишется верстка:
       return (
                   <>                                  {/* если надо указать нескоько тегов, то вместо div ставим <> ( React Fragment) */}
-                        <Header />                    {/* вызываем компонент(фукнцию) Header.tsx */}
                         <Form createNewToDo={createNewToDo} />                                              {/* вызывается функция createNewToDo(), где  createNewToDo(слева)  это аргумент функции Form */}
-                        <ToDoList todos={todos} updateToDo={updateToDo} deleteToDo={deleteToDo}  />                       {/* вызывается функция updateToDo() и delteToDo */}
+                        <ToDoList todos={todos}  updateToDo={updateToDo}  deleteToDo={deleteToDo}  />                       {/* вызывается функция ToDoList(компонент), туда передаются параметры: массив todos и функции updateToDo(), delteToDo */}
                   </>  
             
             )

@@ -4,23 +4,23 @@ import { toDo } from "../../models/todo-item";  // импорт интрфейс
 
 
 
-export const ToDoList = (props: { todos: toDo[], updateToDo: Function, deleteToDo: Function }) => {      // здесь props  это массив todos(у  котрого элементы имеют тип  toDo) и две фукнции 
+export const ToDoList = (props: { todos: toDo[],  updateToDo: Function,  deleteToDo: Function }) => {      // здесь props  это массив todos(у  котрого элементы имеют тип  toDo) и две фукнции 
 
         
       // вернет компоненты <ToDoListItem /> массив, у котрых todoItem.isDone: false:
       const checkedList = () => {
             return  props.todos.filter((todoItem) => todoItem.isDone === false).map((todoItem, index) => {
-                  return  (
+                  return  (               /* <li></li> */
                         <ToDoListItem  toDoItem={todoItem}  updateToDo={props.updateToDo}  deleteToDo={props.deleteToDo}  key={index} />            // итерируемуму элементу надо добавлять key
                   )
-            }) 
+            })
       }
 
 
       // вернет компоненты <ToDoListItem /> массив, у котрых todoItem.isDone: true:
       const uncheckedList = () => {
             return  props.todos.filter((todoItem) => todoItem.isDone === true).map((todoItem, index) => {
-                  return  (
+                  return  (               /* <li></li> */
                         <ToDoListItem  toDoItem={todoItem}  updateToDo={props.updateToDo}  deleteToDo={props.deleteToDo}  key={index} />            // итерируемуму элементу надо добавлять key
                   )
             })
