@@ -5,9 +5,8 @@ import './Form.scss';
 
 
 
-
-export const Form = (props: { createNewToDo: Function }) => {
-      // хук useState имеет text - переменная состояния, и setText - метод изменеия переменной сотсояния:
+export const Form = (props: { createNewToDo: Function }) => {  // передаем фуенцию
+      // хук useState имеет text - переменная состояния, и setText - метод изменеия переменной состояния:
       const [text, setText] = useState<string>('');           // хук  useState - хранилище состояния (переменной text) и управления им. Передали пуcтую строку - нач значение переменной text; text - переменная хранящая значение, котрое передали в setText().   setText()- метод изменеия переменной text 
 
 
@@ -30,7 +29,7 @@ export const Form = (props: { createNewToDo: Function }) => {
 
       return (
             <div className="form-wrapper">
-                        <form action="#" onSubmit={formSubmit}>         {/*  события начинаются на on. По нажатию на кнопку плюса, выовется formSubmit() */}
+                        <form action="#" onSubmit={formSubmit}>         {/*  события начинаются на on. По нажатию на кнопку плюса, вызовется formSubmit() */}
                               <label>
                                     <input type="text" onChange={(event) => setText(event.target.value)}  value={text} />     {/* событие onChange повесили на поле ввода. При вводе символа в поле, вызовется коллбэк */}
                                     <button></button>

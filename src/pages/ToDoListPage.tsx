@@ -1,6 +1,6 @@
 // компонент- функция, которая возвращает верстку ОДНОГО блока
 
-import { Header } from "../components/Header/Header";
+
 import { Form } from "../components/Form/Form";
 import { ToDoList } from "../components/ToDoList/ToDoLIst";
 import { toDo } from "../models/todo-item";           // импортруем интерфейс
@@ -75,8 +75,8 @@ export const ToDoListPage = () => {
       // в круглых скобках  () пишется верстка:
       return (
                   <>                                  {/* если надо указать нескоько тегов, то вместо div ставим <> ( React Fragment) */}
-                        <Form createNewToDo={createNewToDo} />                                              {/* вызывается функция createNewToDo(), где  createNewToDo(слева)  это аргумент функции Form */}
-                        <ToDoList todos={todos}  updateToDo={updateToDo}  deleteToDo={deleteToDo}  />                       {/* вызывается функция ToDoList(компонент), туда передаются параметры: массив todos и функции updateToDo(), delteToDo */}
+                        <Form createNewToDo={createNewToDo} />                                              {/* вызывается функция createNewToDo(), где  createNewToDo  это аргумент функции Form */}
+                        <ToDoList todos={todos}  updateToDo={updateToDo}  deleteToDo={deleteToDo}  />                       {/* вызывается функция ToDoList(компонент), туда передаются параметры: массив todos и функции updateToDo(), delteToDo() */}
                   </>  
             
             )

@@ -8,11 +8,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';  // компо�
 import { HomePage } from './pages/HomePage';
 import { Header } from './components/Header/Header';
 import { toDo } from './models/todo-item';        // импорт интрефейса
+import { NotFound } from './pages/404';
+import { ItemDescription } from './pages/ItemDescription';
 
 
 
-
-const todos: toDo[] = [      
+const todos: toDo[] = [     // для теста  
   {
         id: 0,
         text: 'Первое действие',
@@ -38,15 +39,17 @@ const todos: toDo[] = [
 
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
  root.render(   // в root добавляем всю верстку 
   <React.StrictMode>
     <BrowserRouter>
         <Header />                    {/* вызываем компонент(фукнцию) Header.tsx */}
         <Routes>                      {/* роутинг: */}
-            <Route path='/' element={ <HomePage /> }></Route>   {/* перейдя на '/' страницу, будет отображаен <HomePage />  */}
-            <Route path='/todo' element={ <ToDoListPage /> }></Route>   {/* перейдя на '/todo' страницу, будет отображаен <ToDoListPage /> - компонент основной, вся весртка хранится здесь */}
+            <Route path='/' element={ <HomePage  todos={todos} /> }></Route>   {/* перейдя на '/' страницу, вызовется клмплнент <HomePage /> , атрибут element обязталеьный.  Атрибут todos передаем в фукнцию HomePage() как props */}
+            <Route path='/list/:id' element={ <ItemDescription  todos={todos}  /> }></Route>
+            <Route path='/todo' element={ <ToDoListPage /> }></Route>   {/* перейдя на '/todo' страницу, вызовется клмплнент <ToDoListPage /> - компонент основной, вся весртка хранится здесь */}
+            <Route path='*' element={ <NotFound /> }></Route> 
         </Routes>
     </BrowserRouter>
         

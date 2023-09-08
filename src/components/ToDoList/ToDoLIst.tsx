@@ -21,7 +21,7 @@ export const ToDoList = (props: { todos: toDo[],  updateToDo: Function,  deleteT
       const uncheckedList = () => {
             return  props.todos.filter((todoItem) => todoItem.isDone === true).map((todoItem, index) => {
                   return  (               /* <li></li> */
-                        <ToDoListItem  toDoItem={todoItem}  updateToDo={props.updateToDo}  deleteToDo={props.deleteToDo}  key={index} />            // итерируемуму элементу надо добавлять key
+                        <ToDoListItem  toDoItem={todoItem}  updateToDo={props.updateToDo}  deleteToDo={props.deleteToDo}  key={index} />            // Вызывается фукния ToDoListItem() и в нее пеераде  итерируемуму элементу надо добавлять key
                   )
             })
       }

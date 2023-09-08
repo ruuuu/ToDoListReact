@@ -2,7 +2,7 @@ import './ToDoListItem.scss';
 import { toDo } from '../../../models/todo-item';                 // импорт интерфейса
 
 
-                             
+// ПАHАМЕТРЫ В КОМПОНЕТ(фукния возвращающая верстку) ПЕРЕДАЕМ ЧЕРЕЗ props:                             
 export const ToDoListItem = (props: { toDoItem: toDo,  updateToDo: Function,  deleteToDo: Function }) => {            // передаем 3 props-а(атрибуты тега) типа toDo
 
       //console.log('props ', props)
