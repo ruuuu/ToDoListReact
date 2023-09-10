@@ -36,6 +36,6 @@ export const ToDoList = (props: { todos: toDo[],  updateToDo: Function,  deleteT
                   <ul className="todo-list completed">
                         { uncheckedList() }
                   </ul>
-        </div>
+            </div>
       )
 }
