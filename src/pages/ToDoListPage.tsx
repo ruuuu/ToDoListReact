@@ -66,7 +66,6 @@ export const ToDoListPage = () => {
             console.log('delete',  toDoItem)
             const newToDos = todos.filter((item) => item.id !== toDoItem.id);  // вернет массив, элементами котрого будут элементы подходящие под условеи
             setTodos(newToDos);  
-
       }
 
 
