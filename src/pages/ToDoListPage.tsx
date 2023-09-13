@@ -1,71 +1,39 @@
 // компонент- функция, которая возвращает верстку ОДНОГО блока
-
-
+import { useDispatch, useSelector } from "react-redux";
 import { Form } from "../components/Form/Form";
 import { ToDoList } from "../components/ToDoList/ToDoLIst";
 import { toDo } from "../models/todo-item";           // импортруем интерфейс
 import { useState } from 'react';
+import { RootState } from "../store";
+import { createAction, deleteAction, updateAction } from "../feature/todoList";
 
 
 
 
 export const ToDoListPage = () => {
 
-      const [todos, setTodos] = useState<toDo[]>([      // хук для изменения массива todos(у массива элементы типа toDo) методом setTodos(), нач значение todos это то, что передали в   useState()     
-            {
-                  id: 0,
-                  text: 'Перая задача',
-                  isDone: false
-            },
-            {
-                  id: 1,
-                  text: 'Вторая задача',
-                  isDone: true
-            },
-            {
-                  id: 2,
-                  text: 'Третья задача',
-                  isDone: true
-            }
-      ]);  
+     //это уже не надо, тк todos изменяется через useSelector:
+     // const [todos, setTodos] = useState<toDo[]>([]);       // хук для изменения массива todos(у массива элементы типа toDo) методом setTodos(), нач значение todos это то, что передали в   useState()     
+      const todoList = useSelector((state: RootState) => state.todoList.todos);             // при помощи хука, получили массив todos из redux      
+      const dispatch = useDispatch();             
       
       
      // создание новой задачи:
       const createNewToDo = (text: string) => { 
-            
-            const newToDo: toDo = {                   // создаем элемент newToDo типа toDo
-                  id: todos.length,
-                  text: text,
-                  isDone: false
-            }
-
-            setTodos([...todos, newToDo]);  // передали все эелменты массива todos и новый элемент newToDo
+            dispatch(createAction(text));
       }
 
 
       // обновление  задачи:
       const updateToDo = (toDoItem: toDo) => {                    // toDoItem типа toDo, элемент на галочку которого нажали
-            console.log('update toDoItem', toDoItem)
-            
-            const newToDos = todos.map((item) => {                // map  вернет новый массив, элементами котрогот будут те, котрые подходят под услвие
-                  if(item.id === toDoItem.id){
-                        item.isDone = !item.isDone;
-                  }
-                  return item;
-            });
-                 
-            
-            console.log('toDoItem ', toDoItem)
-            setTodos(newToDos);                                   // обновили массив todos    
+            dispatch(updateAction(toDoItem));                  // обновили массив todos    
       }
 
 
 
       // удаление  задачи:
       const deleteToDo = (toDoItem: toDo) => { 
-            console.log('delete',  toDoItem)
-            const newToDos = todos.filter((item) => item.id !== toDoItem.id);  // вернет массив, элементами котрого будут элементы подходящие под условеи
-            setTodos(newToDos);  
+            dispatch(deleteAction(toDoItem)); 
       }
 
 
@@ -74,9 +42,9 @@ export const ToDoListPage = () => {
       // в круглых скобках  () пишется верстка:
       return (
                   <>                                  {/* если надо указать нескоько тегов, то вместо div ставим <> ( React Fragment) */}
-                        <Form createNewToDo={createNewToDo} />                                              {/* вызывается функция createNewToDo(), где  createNewToDo  это аргумент функции Form */}
-                        <ToDoList todos={todos}  updateToDo={updateToDo}  deleteToDo={deleteToDo}  />                       {/* вызывается функция ToDoList(компонент), туда передаются параметры: массив todos и функции updateToDo(), delteToDo() */}
-                  </>  
-            
+                     <Form createNewToDo={createNewToDo} />                                              {/* вызывается функция createNewToDo(), где  createNewToDo  это аргумент функции Form */}
+                     <ToDoList todos={todoList}  updateToDo={updateToDo}  deleteToDo={deleteToDo}  />                       {/* вызывается функция ToDoList(компонент), туда передаются параметры: массив todos и функции updateToDo(), delteToDo() */}
+                  </>    
             )
 }
+

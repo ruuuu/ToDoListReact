@@ -8,28 +8,28 @@ import { toDo } from "./models/todo-item";            // импорт интре
 
 
 
-const todos: toDo[] = [     // для теста, массив, у котрого элемнты имеют тип toDo
-  {
-        id: 0,
-        text: 'Первое действие',
-        isDone: false
-  },
-  {
-        id: 1,
-        text: 'Второе действие',
-        isDone: true
-  },
-  {
-        id: 2,
-        text: 'Третье действие',
-        isDone: false
-  },
-  {
-    id: 3,
-    text: 'Четвертое действие',
-    isDone: true
-  }
-];  
+// const todos: toDo[] = [     // для теста, массив, у котрого элемнты имеют тип toDo
+//   {
+//         id: 0,
+//         text: 'Первое действие',
+//         isDone: false
+//   },
+//   {
+//         id: 1,
+//         text: 'Второе действие',
+//         isDone: true
+//   },
+//   {
+//         id: 2,
+//         text: 'Третье действие',
+//         isDone: false
+//   },
+//   {
+//     id: 3,
+//     text: 'Четвертое действие',
+//     isDone: true
+//   }
+// ];  
 
 
 
@@ -48,11 +48,11 @@ export const  router = createBrowserRouter([
           },
           {
             path: '/list',              // при переходе на '/list', отобразится компнент ViewList
-            element: <ViewList  todos={todos} />,    
+            element: <ViewList   />,    // убираем пропс  todos={todos} тк массив todos хранится в хранилище состояния, его будем брать оттуда
           }, 
           {
             path: '/list/:id',                // то есть path: /list/:id          
-            element: <ViewListItem todos={todos} />
+            element: <ViewListItem />         // убираем пропс todos={todos}, тк массив todos теперь хранится в хранилище сосотяния(redux), его будем брать оттуда
           }
         ]
       },

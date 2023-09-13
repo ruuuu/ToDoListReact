@@ -14,8 +14,8 @@ export const Header = () => {
             <header className={classes.header}>  {/* класс .Header_header__OKWO7, префикс(OKWO7) гарантируют инкапсуляцию стилей. То есть стили для одного компанонента не применятся к другому */}
                   <div className={classes.container}>
                         {/* из объекта достали isActive: */}
-                        <NavLink  to="/"   className={getActiveClass}> HomePage </NavLink>                 {/* компонент LInk позволяет при смене страниц, перезагрузки не будет */}
-                        <NavLink  to="/todo"  className={getActiveClass}> ToDo </NavLink>
+                        <NavLink  to="/"   className={getActiveClass}> ToDo </NavLink>                 {/* компонент LInk позволяет при смене страниц, перезагрузки не будет */}
+                        <NavLink  to="/list"  className={getActiveClass}> List </NavLink>
                         
                         
                         {/* <a href="/" className={`${classes.link} ${classes.active}`}> HomePage </a>     

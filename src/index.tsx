@@ -20,7 +20,10 @@ const root = ReactDOM.createRoot(
 );
  root.render(   // в root добавляем всю верстку 
   <React.StrictMode>
-    <RouterProvider router={router} />        {/* для  роутинга по новому синтаксису */}
+     <Provider store={store}>
+        <RouterProvider router={router} />           {/* для  роутинга по новому синтаксису */}
+     </Provider>
+   
     {/* роутинг(старый синтаксис): 
     {/* <BrowserRouter>
         <Header />                    {/* вызываем компонент(фукнцию) Header.tsx 
