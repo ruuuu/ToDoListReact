@@ -17,7 +17,7 @@ import { RootState } from "../store";
 //          передавать пропс { todos }:  ComponentProps уже не надо, тк массив todos хранится в хранлище состяний(Redux)
 export const ViewListItem = () => {
 
-      const { id } = useParams();                                // хук, извлекает динамические  параметы которые есть в урле(/list/:id). id потому что в пути path='/list/:id', название параметра id задали сами 
+      const { id } = useParams();                                // хук, извлекает  параметы котрые меняются,  которые есть в урле(/list/:id). id потому что в пути path='/list/:id', название параметра id задали сами 
       const navigate = useNavigate();                             // хук, переводит страницу на указанный урл
       const [todo, setTodo] = useState<toDo>();                     // хук, инициализиуерт перменную todo(нач значение будет undefined) , setTodo() меняет ее
 

@@ -30,12 +30,8 @@ export const ToDoList = (props: { todos: toDo[],  updateToDo: Function,  deleteT
 
       return (
             <div className="todo-container">
-                  <ul className="todo-list failed">
-                         { checkedList() }                        { /* вызов фукнции */ }
-                  </ul>
-                  <ul className="todo-list completed">
-                        { uncheckedList() }
-                  </ul>
+                  <ul className="todo-list failed"> { checkedList() } </ul>               {/* вызов фукнции */}
+                  <ul className="todo-list completed"> { uncheckedList() } </ul>
             </div>
       )
 }

@@ -1,4 +1,4 @@
-// хранилище сотояний:
+// хранилище состояний:
 import { configureStore } from '@reduxjs/toolkit'
 import todoReducer from './feature/todoList'
 import { loadFromLocalStorage, saveToLocalStorage } from './helpers/storage';
@@ -19,7 +19,7 @@ import { loadFromLocalStorage, saveToLocalStorage } from './helpers/storage';
 
 
 
-// создаем базовое состояниие:
+// создаем базовое состояниие(значение переменной):
 export const store = configureStore({
     reducer: {                      // Здесь хранятся все состоняия
         todoList: todoReducer         // todoList это название редьюсера(такое имя сами задали) 

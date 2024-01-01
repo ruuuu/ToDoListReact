@@ -6,7 +6,7 @@ import { toDo } from '../models/todo-item';
 
 
 export interface TodoState {  // интерфейс хранилища
-    todos: toDo[]             // массив типа  toDo
+    todos: toDo[]             // массив типа  toDo = [{id, text, isDone}, {}]
 }
 
 
@@ -19,19 +19,19 @@ const initialState: TodoState = {
 
 
 // создание редьюсера-мутатор состояния(они получают доступ к state и его меняют):
-export const todoSlice = createSlice({  // sice- это объект, котрый отвечает за изменнение состяния
+export const todoSlice = createSlice({  // slice- это объект, котрый отвечает за изменнение состяния
     name: 'todoList',                     // название редьюсера
-    initialState,                     // нач сотсояние
+    initialState,                         // нач сотсояние(массив todos пустой)
     reducers: {
-        createAction: (state, action: PayloadAction<string>) => {  
+        createAction: (state, action: PayloadAction<string>) => {   
             
             const newToDo: toDo = {                         // создаем элемент newToDo типа toDo
                 id: state.todos.length,
                 text: action.payload,
-                isDone: false
+                isDone: false                               // сделана задача или нет
             }
 
-            state.todos = [...state.todos, newToDo];        // (обновляем новый массив), тое тсь  добавили в  массив новый элемент newToDo
+            state.todos = [...state.todos, newToDo];        // (обновляем наш массив todos), тое тсь  добавили в  массив новый элемент newToDo
         },
 
 

@@ -1,6 +1,6 @@
 // компонент Header:
 
-import { NavLink } from 'react-router-dom'; // этот компонеттак же как и  <Link>, но еще он  отслушивате активную ссылку
+import { NavLink } from 'react-router-dom'; // этот компонет так же как и  <Link>, но еще он  отслушивате активную ссылку
 import classes from './Header.module.scss';  // classes это объект, внутри которого будут объекты классов. 
 
 

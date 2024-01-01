@@ -13,7 +13,7 @@ import { createAction, deleteAction, updateAction } from "../feature/todoList";
 export const ToDoListPage = () => {
 
      //это уже не надо, тк todos изменяется через useSelector:
-     // const [todos, setTodos] = useState<toDo[]>([]);       // хук для изменения массива todos(у массива элементы типа toDo) методом setTodos(), нач значение todos это то, что передали в   useState()     
+     // const [todos, setTodos] = useState<toDo[]>([]);       // хук для изменения массива todos методом setTodos(), нач значение todos это то, что передали в useState()     
       const todoList = useSelector((state: RootState) => state.todoList.todos);             // при помощи хука, получили массив todos из redux      
       const dispatch = useDispatch();             
       
@@ -39,7 +39,7 @@ export const ToDoListPage = () => {
 
 
 
-      // в круглых скобках  () пишется верстка:
+      // в круглых скобках () пишется верстка:
       return (
                   <>                                  {/* если надо указать нескоько тегов, то вместо div ставим <> ( React Fragment) */}
                      <Form createNewToDo={createNewToDo} />                                              {/* вызывается функция createNewToDo(), где  createNewToDo  это аргумент функции Form */}
