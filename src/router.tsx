@@ -48,7 +48,7 @@ export const  router = createBrowserRouter([
           },
           {
             path: '/list',              // при переходе на '/list', отобразится компнент ViewList
-            element: <ViewList   />,    // убираем props  todos={todos} тк массив todos хранится в хранилище состояния, его будем брать оттуда
+            element: <ViewList />,    // убираем props  todos={todos} тк массив todos хранится в хранилище состояния, его будем брать оттуда
           }, 
           {
             path: '/list/:id',                // то есть path: /list/:id          
@@ -61,5 +61,5 @@ export const  router = createBrowserRouter([
         element: <NotFound />
       }
     ], 
-    //{ basename: '/app/' }     // /app/  это название поддомена(то есть /app//todo, /app/list/:id), нужен если выкладывать проект на GitHubPages
+    //{ basename: '/app/' }     //  /app/  это название поддомена(то есть /app/todo, /app/list/:id), нужен если выкладывать проект на GitHubPages
     )  

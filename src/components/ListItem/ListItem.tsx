@@ -5,7 +5,7 @@ import classes from './ListItem.module.scss';
 
 
 
-// при передачи аргументов, вместо props можно  его деструктуирировать, и тогда вместо props писать { todo }, то есть будет вот так { todo }: { todo: ToDo }
+// при передачи аргументов, вместо props можно  его деструктуирировать, и тогда вместо props писать { todo }: { todo: ToDo }
 export const ListItem = (props: { todo : toDo }) => {
 
       return (      // /app/
