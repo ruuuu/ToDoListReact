@@ -2,9 +2,9 @@
 import './ToDoListItem.scss';
 import { toDo } from '../../../models/todo-item';                 // импорт интерфейса
 import { TodoItem, TodoItemButtons, TodoItemButton, ToDiListItemText } from './ToDoListItem.styled';
-import checkIcon from '../../assets/images/check.png';
-import uncheckIcon from '../../assets/images/uncheck.png';
-import trashIcon from '../../assets/images/trash.png';
+import checkIcon from '../../../assets/images/check.png';
+import uncheckIcon from '../../../assets/images/uncheck.png';
+import trashIcon from '../../../assets/images/trash.png';
 
 
 
@@ -19,7 +19,7 @@ export const ToDoListItem = (props: { toDoItem: toDo,  updateToDo: Function,  de
                         {/*  на кнопку повесили обработчик onClick, по нажатию на кнопку Корзина, вызвется deleteToDo() */}
                         {/*  props icon={checkIcon}  */}
                         <TodoItemButton  className="btn-trash" icon={trashIcon}  onClick={() => props.deleteToDo(props.toDoItem)}> </TodoItemButton>  
-
+                       
                         <TodoItemButton className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'} icon={checkIcon}  onClick={() => props.updateToDo(props.toDoItem)}> </TodoItemButton>
                   </TodoItemButtons>
             </TodoItem>
