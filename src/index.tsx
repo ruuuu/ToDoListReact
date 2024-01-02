@@ -20,15 +20,15 @@ const root = ReactDOM.createRoot(
      </Provider>
    
     {/* роутинг(старый синтаксис): 
-    {/* <BrowserRouter>
-        <Header />                    {/* вызываем компонент(фукнцию) Header.tsx 
-        <Routes>                      
-            <Route path='/' element={ <HomePage  todos={todos} /> }></Route>            {/* перейдя на '/' страницу, вызовется компонент <HomePage /> , атрибут element обязталеьный.  Атрибут todos передаем в фукнцию HomePage() как props 
-            <Route path='/list/:id' element={ <ItemDescription  todos={todos} /> }></Route>
-            <Route path='/todo' element={ <ToDoListPage /> }></Route>                   {/* перейдя на '/todo' страницу, вызовется компонент <ToDoListPage /> - компонент основной, вся весртка хранится здесь 
-            <Route path='*' element={ <NotFound /> }></Route> 
-        </Routes>
-    </BrowserRouter> */}
+     {/* <BrowserRouter>
+         <Header />                    {/* вызываем компонент(фукнцию) Header.tsx 
+         <Routes>                      
+             <Route path='/' element={ <HomePage  todos={todos} /> }></Route>            {/* перейдя на '/' страницу, вызовется компонент <HomePage /> , атрибут element обязталеьный.  Атрибут todos передаем в фукнцию HomePage() как props 
+             <Route path='/list/:id' element={ <ItemDescription  todos={todos} /> }></Route>
+             <Route path='/todo' element={ <ToDoListPage /> }></Route>                   {/* перейдя на '/todo' страницу, вызовется компонент <ToDoListPage /> - компонент основной, вся весртка хранится здесь 
+             <Route path='*' element={ <NotFound /> }></Route> 
+         </Routes>
+     </BrowserRouter> */}
         
   </React.StrictMode>
 );

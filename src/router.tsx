@@ -48,7 +48,7 @@ export const  router = createBrowserRouter([
           },
           {
             path: '/list',              // при переходе на '/list', отобразится компнент ViewList
-            element: <ViewList />,    // убираем props  todos={todos} тк массив todos хранится в хранилище состояния, его будем брать оттуда
+            element: <ViewList />,    // убираем props  todos={todos} тк массив todos хранится в хранилище состояния(redux), его будем брать оттуда
           }, 
           {
             path: '/list/:id',                // то есть path: /list/:id          
