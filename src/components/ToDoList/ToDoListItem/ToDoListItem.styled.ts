@@ -42,7 +42,7 @@ export const TodoItemButtons = styled.div`
 
 
 
-export const TodoItemButton = styled.button<{ icon: string }>`// тк <Button/ > принимает props icon={trashIcon}, то передаем его тип сюда:
+export const TodoItemButton = styled.button<{ icon: string }>`    // тк <Button/ > принимает props icon={trashIcon}, то передаем его тип сюда:
       position: relative;
       width: 50px;
       height: 50px;
@@ -55,7 +55,7 @@ export const TodoItemButton = styled.button<{ icon: string }>`// тк <Button/ >
       box-shadow: none;
       outline: none;
       cursor: pointer;
-      background-image: url(${(props) => props.icon}); 
+      background-image: url(${(props) => props.icon});            // ${(props) => props.icon}
       
 
       &:last-of-type:before {

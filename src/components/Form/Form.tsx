@@ -6,6 +6,7 @@ import plusIcon from '../../assets/images/plus.png';
 
 
 export const Form = (props: { createNewToDo: Function }) => {  // передаем фуенцию
+      
       // хук useState имеет переменую состояния(text), и метод изменения переменной(setText) состояния:
       const [text, setText] = useState<string>('');           // хук  useState - хранилище состояния (переменной text) и управления им. Передали пуcтую строку - нач значение переменной text; text - переменная хранящая значение, котрое передали в setText().   setText()- метод изменеия переменной text 
 

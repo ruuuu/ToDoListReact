@@ -20,7 +20,7 @@ export const ToDoListItem = (props: { toDoItem: toDo,  updateToDo: Function,  de
                         {/*  props icon={checkIcon}  */}
                         <TodoItemButton  className="btn-trash" icon={trashIcon}  onClick={() => props.deleteToDo(props.toDoItem)}> </TodoItemButton>  
                        
-                        <TodoItemButton className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'} icon={checkIcon}  onClick={() => props.updateToDo(props.toDoItem)}> </TodoItemButton>
+                        <TodoItemButton className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'} icon={props.toDoItem.isDone ? checkIcon : uncheckIcon}  onClick={() => props.updateToDo(props.toDoItem)}> </TodoItemButton>
                   </TodoItemButtons>
             </TodoItem>
       )

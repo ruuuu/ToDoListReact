@@ -19,7 +19,7 @@ import { loadFromLocalStorage, saveToLocalStorage } from './helpers/storage';
 
 
 
-// создаем базовое состояниие(значение переменной):
+// создаем базовое состояниие(значение переменной): код взят отсюда https://redux-toolkit.js.org/tutorials/quick-start
 export const store = configureStore({
     reducer: {                      // Здесь хранятся все состоняия
         todoList: todoReducer         // todoList это название редьюсера(такое имя сами задали) 

@@ -15,7 +15,7 @@ const root = ReactDOM.createRoot(
 );
  root.render(   // в root добавляем всю верстку 
   <React.StrictMode>
-     <Provider store={store}>
+     <Provider store={store}>                       {/* store-хрнаилище состояний */}
         <RouterProvider router={router} />           {/* для  роутинга по новому синтаксису */}
      </Provider>
    

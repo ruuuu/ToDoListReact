@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { toDo } from '../models/todo-item';
 
-// здесь хранилище состояния:
+// здесь хранилище состояний:
 
 
 export interface TodoState {  // интерфейс хранилища
@@ -21,9 +21,9 @@ const initialState: TodoState = {
 // создание редьюсера-мутатор состояния(они получают доступ к state и его меняют):
 export const todoSlice = createSlice({  // slice- это объект, котрый отвечает за изменнение состяния
     name: 'todoList',                     // название редьюсера
-    initialState,                         // нач сотсояние(массив todos пустой)
+    initialState,                         // нач сотсояние(массив todos пустой  в хранилище)
     reducers: {
-        createAction: (state, action: PayloadAction<string>) => {   
+        createAction: (state, action: PayloadAction<string>) => {       // редьюсер. В action.payload попадают парметры, которые передаем при вызове редьюсера 
             
             const newToDo: toDo = {                         // создаем элемент newToDo типа toDo
                 id: state.todos.length,
@@ -35,8 +35,8 @@ export const todoSlice = createSlice({  // slice- это объект, котр�
         },
 
 
-        
-        updateAction: (state, action: PayloadAction<toDo>) => {
+         
+        updateAction: (state, action: PayloadAction<toDo>) => {         // редьюсер, action.payload = {id, text, isDone}
             
             const newToDos = state.todos.map((item) => {                // map  вернет новый массив, элементами котрогот будут те, котрые подходят под услвие
                 if(item.id === action.payload.id){
@@ -50,7 +50,7 @@ export const todoSlice = createSlice({  // slice- это объект, котр�
 
 
 
-        deleteAction: (state, action: PayloadAction<toDo>) => { // PayloadAction дженерик-  динам тип
+        deleteAction: (state, action: PayloadAction<toDo>) => {          // редьюсер  PayloadAction дженерик- динам тип. action.payload = {id, text, isDone}
            
             const newToDos = state.todos.filter((item) => item.id !== action.payload.id);  // вернет массив, элементами котрого будут элементы подходящие под условеи
             state.todos = newToDos; 
