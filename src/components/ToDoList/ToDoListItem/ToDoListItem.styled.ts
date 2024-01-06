@@ -55,7 +55,7 @@ export const TodoItemButton = styled.button<{ icon: string }>`    // тк <Butto
       box-shadow: none;
       outline: none;
       cursor: pointer;
-      background-image: url(${(props) => props.icon});            // ${(props) => props.icon}
+      background-image: url(${(props) => props.icon});            
       
 
       &:last-of-type:before {

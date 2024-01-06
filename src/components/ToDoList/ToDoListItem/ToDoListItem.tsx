@@ -17,7 +17,6 @@ export const ToDoListItem = (props: { toDoItem: toDo,  updateToDo: Function,  de
                   <ToDiListItemText> {props.toDoItem.text} </ToDiListItemText>
                   <TodoItemButtons>
                         {/*  на кнопку повесили обработчик onClick, по нажатию на кнопку Корзина, вызвется deleteToDo() */}
-                        {/*  props icon={checkIcon}  */}
                         <TodoItemButton  className="btn-trash" icon={trashIcon}  onClick={() => props.deleteToDo(props.toDoItem)}> </TodoItemButton>  
                        
                         <TodoItemButton className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'} icon={props.toDoItem.isDone ? checkIcon : uncheckIcon}  onClick={() => props.updateToDo(props.toDoItem)}> </TodoItemButton>
