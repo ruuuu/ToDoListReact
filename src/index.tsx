@@ -1,12 +1,11 @@
 // точка входа:
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/scss/normalize.scss';
-import './assets/scss/style.scss';
-import { BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider } from 'react-router-dom';  // компоненты для маршрутизации
+import {  RouterProvider } from 'react-router-dom';  // компоненты для маршрутизации
 import { router } from './router';
 import { store } from './store'
 import { Provider } from 'react-redux'
+import { GlobalStyle } from './styles/GlobalStyle';
 
 
 
@@ -16,6 +15,7 @@ const root = ReactDOM.createRoot(
  root.render(   // в root добавляем всю верстку 
   <React.StrictMode>
      <Provider store={store}>                       {/* store-хрнаилище состояний */}
+        <GlobalStyle />                             {/* глоб сили подключили */}
         <RouterProvider router={router} />           {/* для  роутинга по новому синтаксису */}
      </Provider>
    

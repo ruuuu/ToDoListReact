@@ -1,5 +1,5 @@
 // компонент
-import './ToDoListItem.scss';
+// import './ToDoListItem.scss';
 import { toDo } from '../../../models/todo-item';                 // импорт интерфейса
 import { TodoItem, TodoItemButtons, TodoItemButton, ToDiListItemText } from './ToDoListItem.styled';
 import checkIcon from '../../../assets/images/check.png';
@@ -13,13 +13,13 @@ export const ToDoListItem = (props: { toDoItem: toDo,  updateToDo: Function,  de
 
       //console.log('props ', props)
       return (
-            <TodoItem  className="todo-list-item__wrapper">
+            <TodoItem>
                   <ToDiListItemText> {props.toDoItem.text} </ToDiListItemText>
                   <TodoItemButtons>
                         {/*  на кнопку повесили обработчик onClick, по нажатию на кнопку Корзина, вызвется deleteToDo() */}
-                        <TodoItemButton  className="btn-trash" icon={trashIcon}  onClick={() => props.deleteToDo(props.toDoItem)}> </TodoItemButton>  
-                       
-                        <TodoItemButton className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'} icon={props.toDoItem.isDone ? checkIcon : uncheckIcon}  onClick={() => props.updateToDo(props.toDoItem)}> </TodoItemButton>
+                        <TodoItemButton   icon={trashIcon}  onClick={() => props.deleteToDo(props.toDoItem)}> </TodoItemButton>  
+                        {/* className={props.toDoItem.isDone ? 'btn-check' : 'btn-uncheck'} */}
+                        <TodoItemButton  icon={props.toDoItem.isDone ? checkIcon : uncheckIcon}  onClick={() => props.updateToDo(props.toDoItem)}> </TodoItemButton>
                   </TodoItemButtons>
             </TodoItem>
       )
